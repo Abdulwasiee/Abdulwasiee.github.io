@@ -12,7 +12,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
       - name: Display GitHub Projects
-        uses: kaustubhgupta/readme-projects-display@v1
+        uses: kaustubhgupta/readme-projects-display@v0.3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           readme_file_path: 'README.md'
