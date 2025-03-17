@@ -1,1 +1,20 @@
+name: Update Profile README
 
+on:
+  schedule:
+    - cron: '0 0 * * *'  # Runs daily at midnight
+  workflow_dispatch:
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Update README with latest projects
+        uses: kaustubhgupta/readme-projects-display@v1
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          readme_file_path: 'README.md'
+          display_count: 5
+          project_sort_by: 'stars'
