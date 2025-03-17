@@ -1,1 +1,20 @@
+name: GitHub Projects Display
 
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  display:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Display GitHub Projects
+        uses: kaustubhgupta/readme-projects-display@v1
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          readme_file_path: 'README.md'
+          display_count: 5
+          project_sort_by: 'stars'
